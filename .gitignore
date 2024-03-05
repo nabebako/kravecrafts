@@ -1,0 +1,9 @@
+# vscode
+.vscode
+
+# developemnt
+node_modules
+dist
+
+# memo
+*.txt
