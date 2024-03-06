@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/ts/main.ts',
+    index: ['./src/index.tsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
