@@ -4,6 +4,9 @@
 # developemnt
 node_modules
 dist
+data
 
-# memo
+# text files
 *.txt
+*.log
+*.memo
