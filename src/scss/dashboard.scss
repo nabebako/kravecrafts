@@ -1,0 +1,18 @@
+@import "bootstrap/scss/bootstrap";
+@import "./variables.scss";
+
+.dashboard-item {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 200ms;
+}
+
+a.dashboard-item{
+    text-decoration: none;
+    color: #000;
+}
+
+.dashboard-item:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 .5rem 1rem rgba(#000, .15);;
+}

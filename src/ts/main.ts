@@ -1,12 +1,12 @@
-import '../scss/styles.scss';
-// import * as bootstrap from 'bootstrap';
+import * as bootstrap from "bootstrap";
 
-function component() {
-  const element = document.createElement('div');
-  // Lodash, now imported by this script
-  element.innerHTML = 'Hello webpack';
+import "@styles/styles.scss";
 
-  return element;
+// don"t touch
+// -----------------------
+export function init() {
+  const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
+  let dropdownList = [] as bootstrap.Dropdown[];
+  dropdownElementList.forEach(dropdownElem => dropdownList.push(new bootstrap.Dropdown(dropdownElem)));
 }
-
-document.body.appendChild(component());
+// -----------------------

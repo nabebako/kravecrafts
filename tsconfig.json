@@ -7,21 +7,22 @@
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
+    "baseUrl": "./src",
     "paths": {
-      "$lib": [
-        "./src/lib"
+      "@components/*": [
+        "components/*"
       ],
-      "$static": [
-        "./src/static"
+      "@types/*": [
+        "types/*"
       ],
-      "$lib/*": [
-        "./src/lib/*"
+      "@styles/*": [
+        "scss/*"
       ],
-      "$static/*": [
-        "./src/static/*"
+      "@scripts/*": [
+        "ts/*"
       ],
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
     "src/**/*.d.ts",

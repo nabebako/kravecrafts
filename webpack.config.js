@@ -1,21 +1,22 @@
-const path = require('path');
-const autoprefixer = require('autoprefixer');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const autoprefixer = require("autoprefixer");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: {
-    index: ['./src/index.tsx'],
+    index: ["./src/index.tsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Development',
+      title: "Development",
       template: "./src/index.html",
     }),
   ],
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   devServer: {
-    static: './dist',
+    static: "./dist",
     port: 8080,
     hot: true
   },
@@ -23,20 +24,20 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: "style-loader"
           },
           {
-            loader: 'css-loader'
+            loader: "css-loader"
           },
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
               postcssOptions: {
                 plugins: [
@@ -46,21 +47,24 @@ module.exports = {
             }
           },
           {
-            loader: 'sass-loader'
+            loader: "sass-loader"
           }
         ]
       }
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
+    plugins: [
+      new TsconfigPathsPlugin()
+    ]
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   optimization: {
-    runtimeChunk: 'single',
+    runtimeChunk: "single",
   },
 };
