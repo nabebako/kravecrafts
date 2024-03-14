@@ -24,9 +24,11 @@ export default function Theme() {
       </div>
       <ul className="dropdown-menu">
         {themes.map(elem => (
-          <li className="dropdown-item d-flex my-1">
-            {elem.svg}
-            <p className="ms-2 mb-0">{elem.name}</p>
+          <li className="dropdown-item">
+            <button className="d-flex w-100 btn border-0">
+              {elem.svg}
+              <p className="ms-2 mb-0">{elem.name}</p>
+            </button>
           </li>
         ), [])}
       </ul>

@@ -12,7 +12,16 @@ export default function Search({ handleSearch }: { handleSearch: (s: string) => 
     window.history.replaceState("", "", newURL);
 
     const timeout = setTimeout(() => {
-      setSerachResult(handleSearch(searchValue));
+      // setSerachResult(handleSearch(searchValue));
+      setSerachResult([1, 2, 3, 4, 5, 6].map(() => {
+        return {
+          title: "test",
+          description: "test",
+          image: new URL("http://localhost:8080/test.svg"),
+          url: new URL("http://localhost:8080/"),
+          tagsName: [],
+        };
+      }, []));
     }, LAG_TIME);
 
     return () => {
@@ -23,9 +32,9 @@ export default function Search({ handleSearch }: { handleSearch: (s: string) => 
   console.log(searchResult.length);
 
   return (
-    <div>
-      <div className="d-flex w-50 mx-auto">
-        <div className="d-flex align-items-center me-auto">
+    <>
+      <div className="d-flex mb-4 justify-content-between">
+        <div className="d-flex align-items-center">
           <input
             type="text" id="search-form" placeholder="Search" style={{ width: "40ch" }}
             className="form-control rounded-pill"
@@ -53,20 +62,22 @@ export default function Search({ handleSearch }: { handleSearch: (s: string) => 
           </button>
         </div>
       </div>
-      <div>
+      <div className="d-flex flex-wrap justify-content-around">
         {searchResult.map(info => {
           return (
-            <Card
-              title={info.title}
-              description={info.description}
-              image={info.image}
-              url={info.url}
-              tagsName={info.tagsName}
-            />
+            <div className="flex-fill m-3" style={{ maxWidth: "24em", minWidth: "16em" }}>
+              <Card
+                title={info.title}
+                description={info.description}
+                image={info.image}
+                url={info.url}
+                tagsName={info.tagsName}
+              />
+            </div>
           );
         })}
       </div>
-    </div>
+    </>
   );
 
 }

@@ -5,7 +5,7 @@ import Tag from "@components/tag";
 export default function Card({ title, description, image, url, tagsName }: { title: string, description: string, image: URL, url: URL, tagsName: string[]; }) {
 
   return (
-    <div className="card w-100">
+    <div className="card rounded-4">
       <img className="card-img-top" src={image.toString()} alt={title} />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
