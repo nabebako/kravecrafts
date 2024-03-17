@@ -13,31 +13,30 @@
 .tag {
     --tag-color: #eee;
     background: #eee;
-    border-radius: 50rem; /* Using border-pill */
+    border-radius: 50rem;
     color: #999;
     display: inline-block;
-    height: 26px;
-    line-height: 26px;
+    height: 1.75em;
+    line-height: 1.75em;
     padding: 0 1rem 0 1.5rem;
     position: relative;
-    // margin: 0 10px 10px 0;
+
     text-decoration: none;
     -webkit-transition: color 0.2s;
     transition: color 0.2s;
 }
 
 .tag::before {
+    content: "";
+    position: absolute;
+    left: 0.7rem;
+    top: 0.7rem;
+    height: 0.35rem;
+    width: 0.35rem;
     background: var(--tag-color);
     border-radius: 10px;
     box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
-    content: '';
-    height: 6px;
-    left: 10px;
-    position: absolute;
-    width: 6px;
-    top: 10px;
 }
-
 
 .tag:hover {
     background-color: var(--tag-color);

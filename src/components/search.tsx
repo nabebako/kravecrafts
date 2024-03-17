@@ -13,11 +13,12 @@ export default function Search({ handleSearch }: { handleSearch: (s: string) => 
 
     const timeout = setTimeout(() => {
       // setSerachResult(handleSearch(searchValue));
-      setSerachResult([1, 2, 3, 4, 5, 6].map(() => {
+      setSerachResult([1, 2, 3, 4, 5, 6].map(e => {
+        let img = e == 2 ? null : new URL("https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg");
         return {
           title: "test",
           description: "test",
-          image: new URL("http://localhost:8080/test.svg"),
+          image: img,
           url: new URL("http://localhost:8080/"),
           tagsName: [],
         };
@@ -66,13 +67,14 @@ export default function Search({ handleSearch }: { handleSearch: (s: string) => 
         {searchResult.map(info => {
           return (
             <div className="flex-fill m-3" style={{ maxWidth: "24em", minWidth: "16em" }}>
-              <Card
-                title={info.title}
-                description={info.description}
-                image={info.image}
-                url={info.url}
-                tagsName={info.tagsName}
-              />
+              <a className="link-underline link-underline-opacity-0" href="">
+                <Card
+                  title={info.title}
+                  description={info.description}
+                  image={info.image}
+                  tagsName={info.tagsName}
+                />
+              </a>
             </div>
           );
         })}
